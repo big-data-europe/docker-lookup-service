@@ -1,0 +1,8 @@
+version: '2'
+services:
+  lookupservice:
+    image: gioargyr/lookup-service:1.0.0
+    hostname: lookupservice
+    container_name: lookupservice
+    ports:
+      - "8080:8080"
