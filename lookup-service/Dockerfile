@@ -54,12 +54,10 @@ RUN wget -q https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION
 
 RUN git clone https://github.com/big-data-europe/pilot-sc7-lookup-service.git && \
 	cd pilot-sc7-lookup-service && \
-	git checkout a53ae62625fbfd7a97b5ee8fcda890cdc78979c6 && \
-	mvn package
+	mvn clean package
 
 RUN cp /pilot-sc7-lookup-service/target/*.war /tomcat/webapps
 
-ADD create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
 ADD lookup.sh /lookup.sh
 ADD gadm28.zip /gadm28.zip
 RUN chmod +x /*.sh \
